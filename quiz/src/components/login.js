@@ -1,8 +1,34 @@
 import React, { Component } from 'react';
 import '../css/style.css'
 import $ from 'jquery';
+import { BrowserRouter as Router, Link, Route, Redirect } from 'react-router-dom';
+
+
+const AuthService = {
+  isAuthenticated: false,
+  authenticate(cb) {
+    this.isAuthenticated = true
+    setTimeout(cb, 100)
+  },
+  logout(cb) {
+    this.isAuthenticated = false
+    setTimeout(cb, 100)
+  }
+};
 
 class Login extends Component {
+
+	state = {
+    redirectToPreviousRoute: false
+  };
+
+	login = () => {
+    AuthService.authenticate(() => {
+      this.setState({ redirectToPreviousRoute: true });
+    });
+  };
+
+
 
 	constructor() {
 		super();
@@ -11,12 +37,23 @@ class Login extends Component {
 
 	registerSubmit(event) {
 		event.preventDefault();
-		const data = new FormData(event.target);
+		const formData = new FormData(document.querySelector('.signup'));
+		let jsonObject ={}
+
+		for (const [key, value]  of formData.entries()) {
+    	jsonObject[key] = value;
+		}
+
+		console.log(JSON.stringify(jsonObject));
+
 		fetch('http://localhost:8080/signup', {
-      method: 'POST',
-      mode: "no-cors",
-      body:data,
-    });
+     method: 'POST',
+     mode: 'no-cors',
+     body: JSON.stringify(jsonObject),
+   	})
+		// const data = this.getFormDataAsJSON(form);
+		// console.log(data)
+
 	}
 
 	componentDidMount(){
@@ -63,7 +100,16 @@ class Login extends Component {
 				  
 				});
 	}
+
   render() {
+
+  const { from } = this.props.location.state || { from: { pathname: "/" } };
+  const { redirectToPreviousRoute } = this.state;
+
+  if (redirectToPreviousRoute) {
+      return <Redirect to={from} />;
+  }
+
     return (
     	<div>
     		<div className="form">
@@ -76,7 +122,7 @@ class Login extends Component {
 			        <div id="signup">   
 			          <h1>Sign Up for Free</h1>
 			          
-			          <form onSubmit={this.registerSubmit}>
+			          <form className="signup" onSubmit={this.registerSubmit}>
 			          
 			          <div className="top-row">
 			            <div className="field-wrap">
@@ -117,7 +163,7 @@ class Login extends Component {
 			        <div id="login">   
 			          <h1>Welcome Back!</h1>
 			          
-			          <form action="/" method="post">
+			         <form>
 			          
 			            <div className="field-wrap">
 			            <label>
@@ -135,7 +181,7 @@ class Login extends Component {
 			          
 			          <p className="forgot"><a href="#">Forgot Password?</a></p>
 			          
-			          <button className="button button-block">Log In</button>
+			          <button className="button button-block" onClick={this.login}>Log In</button>
 			          
 			          </form>
 

@@ -6,11 +6,6 @@ html {
   overflow-y: scroll;
 }
 
-body {
-  background: #c1bdba;
-  font-family: 'Titillium Web', sans-serif;
-}
-
 a {
   text-decoration: none;
   color: #1ab188;

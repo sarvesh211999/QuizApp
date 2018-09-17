@@ -12,7 +12,7 @@ var db *gorm.DB
 var err error
 
 type User struct {
-    ID int `json:"id"`
+    ID uint `json:"id"`
     FirstName string `json:"firstname"`
     LastName string `json:"lastname"`
     Email string `json:"email"`
@@ -21,11 +21,10 @@ type User struct {
 
 func main() {
 
-    db, err := gorm.Open("sqlite3","./quiz.db")
+    db, err = gorm.Open("sqlite3","./quiz.db")
     
     if err != nil { 
         fmt.Println(err)
-        fmt.Println("asdsad")
     }
   
     defer db.Close()
@@ -38,9 +37,10 @@ func main() {
    
 }
 
-func Register(c *gin.Context){
-    fmt.Println("asdsad")
+func Register(c *gin.Context) {
     var user User
-    c.BindJSON
-    c.Header("access-control-allow-origin", "*")
+    c.BindJSON(&user)
+    db.Create(&user)
+    c.Header("access-control-allow-origin", "*") // Why am I doing this? Find out. Try running with this line commented
+    c.JSON(200, user)
 }
