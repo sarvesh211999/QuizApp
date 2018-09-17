@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Link, Route, Redirect, Switch } from 'react-router-dom';
-import '../css/style.css';
+import { BrowserRouter as Router, Link, Route, Redirect, Switch,withRouter } from 'react-router-dom';
+import style from '../css/style.css';
 import $ from 'jquery';
 import Dashboard from './dashboard';
 import Home from './home';
@@ -17,6 +17,18 @@ const AuthService = {
   }
 };
 
+const AuthStatus = withRouter(({ history }) => (
+  AuthService.isAuthenticated ? (
+    <p>
+			<button onClick={() => {
+        AuthService.logout(() => history.push('/'))
+      }}>Sign out</button>
+    </p>
+  ) : (
+    <p>You are not logged in.</p>
+  )
+));
+
 const SecretRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
     AuthService.isAuthenticated === true
@@ -31,7 +43,7 @@ const SecretRoute = ({ component: Component, ...rest }) => (
 class Login extends Component {
 
 	state = {
-    redirectToPreviousRoute: false
+    	redirectToPreviousRoute: false
   };
 
 	login = () => {
@@ -39,8 +51,6 @@ class Login extends Component {
       this.setState({ redirectToPreviousRoute: true });
     });
   };
-
-
 
 	constructor() {
 		super();
@@ -141,14 +151,14 @@ class Login extends Component {
 			              <label>
 			                First Name<span className="req">*</span>
 			              </label>
-			              <input type="text" name="firstname" required autoComplete="off" />
+			              <input className="forminput" type="text" name="firstname" required autoComplete="off" />
 			            </div>
 			        
 			            <div className="field-wrap">
 			              <label>
 			                Last Name<span className="req">*</span>
 			              </label>
-			              <input type="text" name="lastname" required autoComplete="off"/>
+			              <input className="forminput" type="text" name="lastname" required autoComplete="off"/>
 			            </div>
 			          </div>
 
@@ -156,14 +166,14 @@ class Login extends Component {
 			            <label>
 			              Email Address<span className="req">*</span>
 			            </label>
-			            <input type="email" name="email" required autoComplete="off"/>
+			            <input className="forminput"  type="email" name="email" required autoComplete="off"/>
 			          </div>
 			          
 			          <div className="field-wrap">
 			            <label>
 			              Set A Password<span className="req">*</span>
 			            </label>
-			            <input type="password" name="password" required autoComplete="off"/>
+			            <input className="forminput" type="password" name="password" required autoComplete="off"/>
 			          </div>
 			          
 			          <button className="button button-block">Get Started </button>
@@ -175,20 +185,20 @@ class Login extends Component {
 			        <div id="login">   
 			          <h1>Welcome Back!</h1>
 			          
-			         <form>
+			         <form className="login">
 			          
 			            	<div className="field-wrap">
 			            	<label>
 			             	 Email Address<span className="req">*</span>
 			            	</label>
-			          	  <input type="email"required autoComplete="off"/>
+			          	  <input className="forminput" type="email"required autoComplete="off"/>
 			        	  </div>
 			          
 			          	<div className="field-wrap">
 			           	 <label>
 			           	   Password<span className="req">*</span>
 			           	 </label>
-			           	 <input type="password"required autoComplete="off"/>
+			           	 <input className="forminput" type="password"required autoComplete="off"/>
 			          	</div>
 			          
 			         	 <p className="forgot"><a href="#">Forgot Password?</a></p>
@@ -213,6 +223,7 @@ class App extends Component {
     return (
     	<Router>
         <div style={{width: 1000, margin: '0 auto'}}>
+        <AuthStatus />
           <ul>
             <li><Link to='/home'> Home </Link></li>
             <li><Link to='/dashboard'> Dashboard </Link></li>

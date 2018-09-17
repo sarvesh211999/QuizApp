@@ -1,9 +1,25 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Link, Route, Redirect, Switch,withRouter } from 'react-router-dom';
+import AddCategory from './addCategory';
+import Home from './home';
 
 class Dashboard extends Component {
 	render() {
 		return (
-			<div> On LoggedIn </div>
+			<Router>
+        <div style={{width: 1000, margin: '0 auto'}}>
+          <ul>
+            <li><Link to='/home'> Home </Link></li>
+            <li><Link to='/addCategory'> Add Category </Link></li>
+          </ul>
+          <hr/>
+          <Switch>
+	          <Route path='/home' component={Home} />
+	          <Route path='/addCategory' component={AddCategory} />
+
+	         </Switch>
+        </div>
+      </Router>
 
 
 		);
