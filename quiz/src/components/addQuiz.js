@@ -48,6 +48,12 @@ class AddQuiz extends Component {
 	    	jsonObject[key] = value;
 			}
 
+			delete jsonObject.category;
+			jsonObject.answer = checked;
+			console.log(jsonObject)
+			
+
+
 			console.log(JSON.stringify(jsonObject));
 	};
 
