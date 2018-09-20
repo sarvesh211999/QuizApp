@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Link, Route, Redirect, Switch,withRouter } fro
 import AddCategory from './addCategory';
 import AddQuiz from './addQuiz';
 import Home from './home';
-import Quizzes from './quiz';
+import QuizList from './quizList';
 
 class Dashboard extends Component {
 	render() {
@@ -22,8 +22,7 @@ class Dashboard extends Component {
 	          <Route path='/home' component={Home} />
 	          <Route path='/addCategory' component={AddCategory} />
             <Route path='/addQuiz' component={AddQuiz} />
-            <Route path='/quizlist' component={Quizzes} />
-
+            <Route path='/quizlist' component={QuizList} />
 	         </Switch>
         </div>
       </Router>

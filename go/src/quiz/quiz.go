@@ -6,14 +6,14 @@ type Category struct {
 }
 
 type QuizSet struct {
-   ID int `json:"id"`
-   Name string `json:"quizname"`  
+   ID uint `json:"id"`
+   Name string `json:"quizname" gorm:"size:200;unique"`  
    Category string `json:"category"`  
 }
 
 type Quiz struct {
     ID uint `json:"id"`
-    QuizName string `json:"quizname"`
+    QuizName string `json:"quizname"` 
     Question string `json:"question"`
     Option1 string `json:"option1"`
     Option2 string `json:"option2"`
