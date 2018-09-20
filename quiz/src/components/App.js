@@ -234,7 +234,7 @@ class App extends Component {
           <Switch>
 	          <Route path='/home' component={Home} />
 	          <Route path='/login' component={Login} />
-	          <Route path='/dashboard' component={Dashboard} />
+	          <SecretRoute path='/dashboard' component={Dashboard} />
 	         </Switch>
         </div>
       </Router>
