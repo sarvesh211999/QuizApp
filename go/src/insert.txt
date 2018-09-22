@@ -1,0 +1,1000 @@
+  998  date | cat -f1
+  999  date | sed -f1
+ 1000  date | sed -d1
+ 1001  date | awk 1
+ 1002  date | awk 2
+ 1003  date | awk 1-2
+ 1004  date | awk -F " " '{print $1}'
+ 1005  sleep 5000
+ 1006  echo 
+ 1007  for i in {1..5} ; do \
+ 1008  for i in {1..5} ; do  echo "asd"; sleep 1000; dine
+ 1009  for i in {1..5} ; do  echo "asd"; sleep 1000; done
+ 1010  for i in {1..5} ; do  echo "asd"; sleep 2; done
+ 1011  npm install --save request request-promise cheerio
+ 1012  chmod +x ./index.js 
+ 1013  ./index.js 
+ 1014  node index.js 
+ 1015  ./index.js 
+ 1016  node index.js 
+ 1017  ./index.js 
+ 1018  node index.js 
+ 1019  npm start
+ 1020  npm init -y
+ 1021  npm install --save express
+ 1022  npm start
+ 1023  cd ..
+ 1024  ls
+ 1025  cd ..
+ 1026  cd SEM-3/
+ 1027  ls
+ 1028  cd SSAD/SSAD
+ 1029  cd SSAD/SSAD3
+ 1030  cd SSAD/SSAD44/
+ 1031  ls
+ 1032  git status 
+ 1033  git pull origin master 
+ 1034  git remote v
+ 1035  git remote -v
+ 1036  git fetch origin
+ 1037  git checkout patch-2 
+ 1038  git checkout development SRS.docx
+ 1039  git checkout development ./SRS.docx
+ 1040  git status 
+ 1041  git show patch-2:SRS.docx > development 
+ 1042  git checkout development 
+ 1043  ls
+ 1044  cd de
+ 1045  git status 
+ 1046  git checkout .
+ 1047  git status 
+ 1048  git checkout patch-
+ 1049  git checkout patch-2 
+ 1050  git checkout development 
+ 1051  git checkout patch-2 SRS.docx
+ 1052  git status 
+ 1053  git add .
+ 1054  git commit -m "added SRS from another branch"
+ 1055  git status 
+ 1056  git branch -D patch-2 
+ 1057  git push origin development 
+ 1058  matrix
+ 1059  mount
+ 1060  mount | grep home
+ 1061  mount | grep "/home"
+ 1062  mount
+ 1063  ping -c $1 www.google.com | perl -nle 'print scalar(localtime), " -- ", $_'
+ 1064  ping -c 2 www.google.com | perl -nle 'print scalar(localtime), " -- ", $_'
+ 1065  echo -e "\e[1;"34"m""askdsbad""\e[0m"
+ 1066  echo -e "\e[1;"30"m""askdsbad""\e[0m"
+ 1067  nvidia-smi 
+ 1068  nvidia-settings 
+ 1069  wifi-vs09 
+ 1070  nautilus .
+ 1071  mysql -u root =p
+ 1072  mysql -u root -p
+ 1073  mysql
+ 1074  mysql -u root admin
+ 1075  mysql -u root
+ 1076  mysql -u sarvesh
+ 1077  sudo mysql -u sarvesh
+ 1078  mysql -u root -p
+ 1079  cd Sarvesh/SEM-3/Database/
+ 1080  mysql -u root -p
+ 1081  wifi-vs09 
+ 1082  mysql -u root -p
+ 1083  wifi-vs09
+ 1084  source ~/.bashrc 
+ 1085  wifi-vs09 
+ 1086  clear
+ 1087  exit
+ 1088  wifi-vs09 
+ 1089  ssh sarvesh.mehta@research.iiit.ac.in
+ 1090  ssh sarvesh.mehta@research.iiit.ac.in -p
+ 1091  ssh sarvesh.mehta@research.iiit.ac.in
+ 1092  ssh-keygen -t rsa
+ 1093  cd ~/.ssh/
+ 1094  ls -l
+ 1095  ssh-copy-id sarvesh.mehta@research.iiit.ac.in
+ 1096  sudo ssh-copy-id sarvesh.mehta@research.iiit.ac.in
+ 1097  ssh sarvesh.mehta@researchweb.iiit.ac.in
+ 1098  sudo add-apt-repository ppa:graphics-drivers/ppa
+ 1099  wif
+ 1100  wifi-vs09
+ 1101  source ~/.bashrc 
+ 1102  wifi-vs09 
+ 1103  poweroff 
+ 1104  wifi-vs09 
+ 1105  sudo add-apt-repository ppa:gwendal-lebihan-dev/hexchat-stable
+ 1106  sudo apt-get update
+ 1107  sudo apt-get install hexchat
+ 1108  wifi-vs09 
+ 1109  ls
+ 1110  vagrant up --provision
+ 1111  vagrant ssh
+ 1112  wifi-vs09 
+ 1113  python3 manage.py runserver
+ 1114  vagrant up --provision
+ 1115  sudo apt install libtesseract-dev 
+ 1116  sudo apt install tesseract-ocr
+ 1117  vagrant up --provision
+ 1118  vagrant ssh
+ 1119  vagrant up --provision
+ 1120  vagrant ssh
+ 1121  vagrant halt
+ 1122  wifi-vs09 
+ 1123  git clone https://github.com/sarvesh211999/osdg-site.github.io.git
+ 1124  ls
+ 1125  git status 
+ 1126  git init
+ 1127  git remote add "https://github.com/sarvesh211999/osdg-site.github.io.git"
+ 1128  git remote add origin "https://github.com/sarvesh211999/osdg-site.github.io.git"
+ 1129  git status 
+ 1130  subl ReadMe.md
+ 1131  git status 
+ 1132  cp ReadMe.md ./readne.md
+ 1133  ls
+ 1134  rm ReadMe.md 
+ 1135  git add .
+ 1136  git commit -m 
+ 1137  git commit -m "init"
+ 1138  git push origin master 
+ 1139  git status 
+ 1140  git commit -a -m "init"
+ 1141  git push origin master 
+ 1142  git rebase -i HEAD~2
+ 1143  git rebase HEAD~2 -i
+ 1144  git rebase HEAD~1 -i
+ 1145  git status 
+ 1146  git add .
+ 1147  git commit -a -m "init"
+ 1148  git push origin master 
+ 1149  git log
+ 1150  git rebase HEAD~3 -i
+ 1151  git rebase HEAD~2 -i
+ 1152  git status 
+ 1153  git push origin master 
+ 1154  git push -f origin master 
+ 1155  vagrant up
+ 1156  omegaup
+ 1157  vagrant
+ 1158  vagrant ssh
+ 1159  python3
+ 1160  ssh sarvesh.mehta@research.iiit.ac.in
+ 1161  history 
+ 1162  history > file.txt
+ 1163  gedit file.txt 
+ 1164  ssh-copy-id sarvesh.mehta@research.iiit.ac.in
+ 1165  sudo ssh-copy-id sarvesh.mehta@research.iiit.ac.in
+ 1166  ssh-keygen -t rsa
+ 1167  cd ~/.ssh/
+ 1168  ls -l
+ 1169  ssh-copy-id sarvesh.mehta@research.iiit.ac.in
+ 1170  ls
+ 1171  rm id_rsa id_rsa.pub 
+ 1172  ls
+ 1173  rm known_hosts known_hosts 
+ 1174  rm 
+ 1175  rm k
+ 1176  ls
+ 1177  ssh-keygen -t rsa
+ 1178  ssh-copy-id sarvesh.mehta@research.iiit.ac.in
+ 1179  ssh-copy-id sarvesh.mehta@researchweb.iiit.ac.in
+ 1180  ssh sarvesh.mehta@researchweb.iiit.ac.in
+ 1181  python3 scraper2
+ 1182  python3 scraper2.py 
+ 1183  wifi-vs09 
+ 1184  python3
+ 1185  python3 05_linear_regression.py 
+ 1186  time python3 05_linear_regression.py 
+ 1187  python3 05_linear_regression.py 
+ 1188  python3 logistic_regression.py 
+ 1189  wifi-vs09 
+ 1190  pwd
+ 1191  cd ..
+ 1192  ls
+ 1193  cd ..
+ 1194  git status 
+ 1195  make -k build-with-full-infra 
+ 1196  sudo make -k build-with-full-infra 
+ 1197  cd ../../../..
+ 1198  ls
+ 1199  cd content/
+ 1200  ls
+ 1201  cd build/
+ 1202  ls
+ 1203  cd docs/
+ 1204  ls
+ 1205  python -m SimpleHTTPServer 
+ 1206  git clone https://gitlab.com/vlead-projects/experiments/ds-experiments/heapsort/content.git
+ 1207  git clone git clone https://gitlab.com/vlead-projects/experiments/ds-experiments/heapsort/content.git
+ 1208  ls
+ 1209  make -k build-with-full-infra
+ 1210  make -k all
+ 1211  ls
+ 1212  make -k all
+ 1213  git status 
+ 1214  git checkout init.sh
+ 1215  make -k all
+ 1216  ls
+ 1217  cd build/c
+ 1218  ls
+ 1219  cd build/
+ 1220  ls
+ 1221  cd docs/
+ 1222  ls
+ 1223  python -m Simple
+ 1224  python -m SimpleHTTPServer 
+ 1225  cd ../..
+ 1226  ls
+ 1227  make -k all
+ 1228  cd build/docs/
+ 1229  python -m SimpleHTTPServer 
+ 1230  cd ../..
+ 1231  ls
+ 1232  git status 
+ 1233  cd src/
+ 1234  git status 
+ 1235  cd ..
+ 1236  ls
+ 1237  make -k all
+ 1238  cd ~/heapsort/content/build/docs/
+ 1239  ls
+ 1240  python -m SimpleHTTPServer 
+ 1241  cd ../..
+ 1242  make -k all
+ 1243  git status 
+ 1244  cd build/docs/
+ 1245  ls
+ 1246  python -m SimpleHTTPServer 
+ 1247  git status 
+ 1248  make -k all
+ 1249  git status 
+ 1250  make -k all
+ 1251  git status 
+ 1252  make -k all
+ 1253  git status 
+ 1254  make -k all
+ 1255  git clone https://gitlab.com/vlead-projects/experiments/ds-experiments/heapsort/content.git
+ 1256  git status 
+ 1257  cd Desktop/
+ 1258  git clone https://gitlab.com/vlead-projects/experiments/ds-experiments/linkedlists/artefacts.git
+ 1259  git status 
+ 1260  git remote -v
+ 1261  cd ..
+ 1262  ls
+ 1263  cd ..
+ 1264  ls
+ 1265  cd ..
+ 1266  git checkout -b CSS
+ 1267  git status 
+ 1268  cd ..
+ 1269  ls
+ 1270  git status 
+ 1271  cd content/
+ 1272  git status 
+ 1273  git checkout master 
+ 1274  ls
+ 1275  git branch -D CSS 
+ 1276  git status 
+ 1277  cd ..
+ 1278  ls
+ 1279  cd artefacts/
+ 1280  git status 
+ 1281  make -k all
+ 1282  cd heapsort/
+ 1283  ls
+ 1284  cd artefacts/
+ 1285  ls
+ 1286  cd build/
+ 1287  cd code/
+ 1288  ls
+ 1289  cd runtime/
+ 1290  ls
+ 1291  cd ../../..
+ 1292  ls
+ 1293  cd src/
+ 1294  ls
+ 1295  cd t
+ 1296  cd runtime/
+ 1297  ls
+ 1298  cd ..
+ 1299  ls
+ 1300  cd ../catalog-service/build/code/runtime/
+ 1301  npm startr
+ 1302  npm start
+ 1303  cd heapsort/content/build/
+ 1304  ls
+ 1305  cd docs/
+ 1306  python -m Simple
+ 1307  python -m SimpleHTTPServer 
+ 1308  cd ../..
+ 1309  ls
+ 1310  cd build/docs/
+ 1311  ls
+ 1312  python -m SimpleHTTPServer 
+ 1313  nohup mongod
+ 1314  sudo kill mongod
+ 1315  killall mongod
+ 1316  sudo nohup mongod
+ 1317  mkdir linkedlist
+ 1318  rmdir linkedlist/
+ 1319  sudo killall mongod
+ 1320  sudo nohup mongod
+ 1321  cd catalog-service/
+ 1322  ls
+ 1323  cd build/
+ 1324  ls
+ 1325  cd docs/
+ 1326  ls
+ 1327  cd runtime
+ 1328  ls
+ 1329  cd ..
+ 1330  ls
+ 1331  cd ..
+ 1332  ls
+ 1333  cd docs/
+ 1334  ls
+ 1335  cd runtime/
+ 1336  ls
+ 1337  cd ../../..
+ 1338  ls
+ 1339  history
+ 1340  cd build/code/runtime/
+ 1341  ls
+ 1342  npm start
+ 1343  cd ~/heapsort/content/build/docs/
+ 1344  python -m SimpleHTTPServer 
+ 1345  git status 
+ 1346  git add .
+ 1347  git commit -m "2-6"
+ 1348  git push origin master 
+ 1349  git status 
+ 1350  ls
+ 1351  python3 07_diabets_logistic.py 
+ 1352  python3 08_1_dataset_loader.py 
+ 1353  python3 08_2_dataset_loade_logistic.py 
+ 1354  cd Sarvesh/Python/
+ 1355  ls
+ 1356  git clone https://github.com/hunkim/PyTorchZeroToAll.git
+ 1357  nautilus .
+ 1358  git status 
+ 1359  cd PyTorchZeroToAll/
+ 1360  ls
+ 1361  git status 
+ 1362  wifi-vs09 
+ 1363  sudo nohup mongod 
+ 1364  cd heapsort/
+ 1365  ls
+ 1366  cd catalog-service/build/code/runtime/
+ 1367  ls
+ 1368  npm start
+ 1369  cd ~/heapsort/content/build/docs/
+ 1370  python -m SimpleHTTPServer 
+ 1371  cd ~/heapsort/artefacts/
+ 1372  ls
+ 1373  cd build/
+ 1374  ls
+ 1375  cd code/runtime/realization-catalog/
+ 1376  gedit realization.json
+ 1377  postman
+ 1378  git add .
+ 1379  git commit -m "org test"
+ 1380  git push origin master 
+ 1381  1
+ 1382  git push origin master 
+ 1383  git sta
+ 1384  git status 
+ 1385  git add .
+ 1386  git commit -m "team heapsort MOM 2018-09-14"
+ 1387  git push origin master 
+ 1388  git add .
+ 1389  git commit -m "org"
+ 1390  git push origin master 
+ 1391  git push origin development 
+ 1392  git clone https://gitlab.com/vlead-projects/experiments/2018-ssad/index.git
+ 1393  sudo apt-get install powertop
+ 1394  cd ~/heapsort/content/
+ 1395  ks
+ 1396  ls
+ 1397  cd build/
+ 1398  cd docs/
+ 1399  python -m Simple
+ 1400  python -m SimpleHTTPServer 
+ 1401  cd heapsort/
+ 1402  ls
+ 1403  cd catalog-service/build/code/runtime/
+ 1404  ls
+ 1405  npm start
+ 1406  sudo nohup mongod
+ 1407  ifconfig
+ 1408  ssh 192.168.1.1
+ 1409  wif
+ 1410  wifi-vs09 
+ 1411  yarn global add create-react-app
+ 1412  ls
+ 1413  rm nohup.out 
+ 1414  cd Sarvesh/
+ 1415  ls
+ 1416  sudo yarn global add create-react-app
+ 1417  curl http://localhost:3000/jokes
+ 1418  sudo apt-get remove --autoremove tlp
+ 1419  sudo add-apt-repository ppa:linrunner/tlp && sudo apt-get update && sudo apt-get install tlp tlp-rdw
+ 1420  tlp
+ 1421  tlp start
+ 1422  sudo tlp start
+ 1423  tlp stop
+ 1424  tlp sta
+ 1425  tlp stat 
+ 1426  sudo tlp stat 
+ 1427  cd Downloads/
+ 1428  curl -O https://storage.googleapis.com/golang/go1.9.3.linux-amd64.tar.gz
+ 1429  sha256sum go1.9.3.linux-amd64.tar.gz
+ 1430  tar -xvf go1.9.3.linux-amd64.tar.gz
+ 1431  sudo chown -R root:root ./go
+ 1432  sudo mv go /usr/local
+ 1433  gedit ~/.profile 
+ 1434  source ~/.profile 
+ 1435  cd Sar
+ 1436  cd ../Sarvesh/
+ 1437  ls
+ 1438  mkdir Go
+ 1439  mkdir -p go/src/hello
+ 1440  cd go/src/hello/
+ 1441  touch hello.go
+ 1442  go hello.go 
+ 1443  go build
+ 1444  ./hello 
+ 1445  cd $GOPATH
+ 1446  gedit ~/.profile 
+ 1447  ls
+ 1448  cd ..
+ 1449  ls
+ 1450  cd ..
+ 1451  ls
+ 1452  cd src/
+ 1453  ls
+ 1454  cd hello/
+ 1455  l
+ 1456  ls
+ 1457  cd h
+ 1458  cd ..,/..
+ 1459  cd ..//.
+ 1460  cd ..
+ 1461  ls
+ 1462  cd src/
+ 1463  rm -rf hello
+ 1464  ls
+ 1465  mkdir golang
+ 1466  subl main.go
+ 1467  cd golang/
+ 1468  ls
+ 1469  mkdir vies
+ 1470  rmdir vies/
+ 1471  mkdir views
+ 1472  cd views/
+ 1473  subl index.html
+ 1474  mkdir js
+ 1475  go get -u github.com/gin-gonic/gin
+ 1476  cd ..
+ 1477  go get -u github.com/gin-gonic/gin
+ 1478  cd ..
+ 1479  cd src/golang/
+ 1480  ls
+ 1481  go get -u github.com/gin-gonic/contrib/static
+ 1482  go run main.go 
+ 1483  curl http://localhost:3000/api/jokes
+ 1484  go run main.go 
+ 1485  curl http://localhost:3000/api/jokes
+ 1486  curl http://localhost:3000/api/jokes/like/1
+ 1487  curl -X POST  http://localhost:3000/api/jokes/like/1
+ 1488  curl -X POST  http://localhost:3000/api/jokes
+ 1489  curl -X POST  http://lo000/api/jokes
+ 1490  curl  http://localhost:3000/api/jokes
+ 1491  curl -X POST  http://localhost:3000/api/jokes/like/4
+ 1492  curl  http://localhost:3000/api/jokes
+ 1493  curl -X POST  http://localhost:3000/api/jokes/like/4
+ 1494  cd ..
+ 1495  go run main.go 
+ 1496  source ~/.profile 
+ 1497  go run main.go 
+ 1498  c d..
+ 1499  ls
+ 1500  cd ..
+ 1501  ls
+ 1502  cd golang/
+ 1503  go get -u github.com/gin-gonic/gin
+ 1504  go run main.go 
+ 1505  history 
+ 1506  mysql
+ 1507  mysql -u user -p
+ 1508  mysql -u root -p
+ 1509  gedit ~/.profile 
+ 1510  source ~/.profile
+ 1511  gedit ~/.profile 
+ 1512  mkdir -p $GOPATH/src/github.com/user/golang-gin
+ 1513  cd $GOPATH/src/github.com/user/golang-gin
+ 1514  nautilus /
+ 1515  nautilus .
+ 1516  ls
+ 1517  cd ..
+ 1518  ls
+ 1519  cd Quiz/
+ 1520  ls
+ 1521  go run main.go 
+ 1522  cd Sarvesh/
+ 1523  ls
+ 1524  cd go/
+ 1525  ls
+ 1526  git clone https://github.com/dheerajpreddy/Go-React-Boilerplate.git
+ 1527  go get -u -v github.com/jinzhu/gorm
+ 1528  o get -u -v github.com/gin-contrib/cors
+ 1529  go get -u -v github.com/gin-contrib/cors
+ 1530  cd Go-React-Boilerplate/
+ 1531  ls
+ 1532  cd h
+ 1533  cd go/
+ 1534  ls
+ 1535  cd src/
+ 1536  ls
+ 1537  cd ../..
+ 1538  ls
+ 1539  cd react-app/
+ 1540  ls
+ 1541  yarn run
+ 1542  yarn start
+ 1543  yarn install
+ 1544  yarn start
+ 1545  ls
+ 1546  c ..
+ 1547  cd ..
+ 1548  ls
+ 1549  go run main.go 
+ 1550  go get -u fmt.Println("Go MySQL Tutorial")
+ 1551  go get -u github.com/go-sql-driver/mysql
+ 1552  go run main.go 
+ 1553  sudo -u root -p
+ 1554  sudo mysql -u root -p
+ 1555  wifi-vs09 
+ 1556  cd ..
+ 1557  l
+ 1558  npm start
+ 1559  cd ..
+ 1560  npm start
+ 1561  yarn add react-router
+ 1562  yarn add react-router-dom
+ 1563  ls
+ 1564  yarn install
+ 1565  yarn add react-router-dom
+ 1566  yarn remove react-router
+ 1567  ls
+ 1568  cd ..
+ 1569  ls
+ 1570  cd ..
+ 1571  ls
+ 1572  cd ..
+ 1573  ls
+ 1574  cd ..
+ 1575  git status 
+ 1576  git checkout .
+ 1577  create-react-app quiz
+ 1578  cd quiz/
+ 1579  npm start
+ 1580  yarn run dev
+ 1581  yarn start
+ 1582  npm start
+ 1583  yarn add react-router
+ 1584  npm start
+ 1585  ls
+ 1586  yarn add react-router
+ 1587  npm start
+ 1588  cd. .
+ 1589  cd ..
+ 1590  npm start
+ 1591  ls
+ 1592  cd src/
+ 1593  ls
+ 1594  git status 
+ 1595  l
+ 1596  cd ..
+ 1597  npm start
+ 1598  nautilus .
+ 1599  git status 
+ 1600  git checkout gorm.db
+ 1601  git status 
+ 1602  cd ..
+ 1603  ls
+ 1604  cd ../react-app/
+ 1605  ls
+ 1606  cd src/
+ 1607  ls
+ 1608  cd ..
+ 1609  npm startr
+ 1610  npm startt
+ 1611  npm start
+ 1612  curl -X DELETE 'http://127.0.0.1:8080/people/25'
+ 1613  npm start
+ 1614  cd ..
+ 1615  ls
+ 1616  cd .
+ 1617  cd ..
+ 1618  ls
+ 1619  cd go
+ 1620  ls
+ 1621  cd src/
+ 1622  ls
+ 1623  go run 5\ -\ CRUD\ API.go 
+ 1624  go get -u -v github.com/gin-contrib/cors
+ 1625  go run 5\ -\ CRUD\ API.go 
+ 1626  go get -u -v github.com/jinzhu/gorm
+ 1627  go run 5\ -\ CRUD\ API.go 
+ 1628  go get -u -v github.com/mattn/go-sqlite3
+ 1629  go run 5\ -\ CRUD\ API.go 
+ 1630  cd src/
+ 1631  ls
+ 1632  cd ..
+ 1633  ls
+ 1634  yarn install jquery
+ 1635  yarn add jquery
+ 1636  cd ..
+ 1637  ls
+ 1638  npm start
+ 1639  cd ..
+ 1640  ls
+ 1641  cd go/
+ 1642  go run 5
+ 1643  ls
+ 1644  cd src/
+ 1645  ls
+ 1646  go run 5\ -\ CRUD\ API.go 
+ 1647  cd ../sr
+ 1648  cd ../go/src/
+ 1649  ls
+ 1650  go run 5\ -\ CRUD\ API.go 
+ 1651  npm start
+ 1652  google-chrome-stable
+ 1653  nautilus .
+ 1654  go get -u -v github.com/gin-gonic/gin
+ 1655  ls
+ 1656  go run main.go 
+ 1657  git status 
+ 1658  git init
+ 1659  git remote -v
+ 1660  git remote add origin https://github.com/sarvesh211999/QuizApp.git
+ 1661  git push -u origin mas
+ 1662  ls
+ 1663  git status 
+ 1664  git add .
+ 1665  git status 
+ 1666  git add .
+ 1667  git commit -m "init"
+ 1668  git push -u origin master 
+ 1669  curl -i -X POST http://localhost:8080/signup -d '{"firstname":"sa","lastname":"sasad","email":"sadsa@sadsad","password":"asdsad"}'
+ 1670  curl -i -X POST http://localhost:8080/signup -d '{"firstName":"sa","lastName":"sasad","email":"sadsa@sadsad","password":"asdsad"}'
+ 1671  curl -i -X POST http://localhost:8080/signup -d '{"FirstName":"sa","LastName":"sasad","Email":"sadsa@sadsad","Password":"asdsad"}'
+ 1672  cd go/
+ 1673  ls
+ 1674  cd src/
+ 1675  go run 5\ -\ CRUD\ API.go 
+ 1676  cd ../
+ 1677  cd r
+ 1678  cd ..
+ 1679  ls
+ 1680  cd react-app/
+ 1681  ls
+ 1682  npm start
+ 1683  curl -i -X POST curl -i -X POST http://localhost:8080/people -d '{ "FirstName": "Elvis", "LastName": "Psad","City":"asdsa"}'
+ 1684  curl -i -X POST curl -i -X POST http://localhost:8080/people -d '{ "firstname": "Elvis", "lastname": "Psad","city":"asdsa"}'
+ 1685  wifi-vs09 
+ 1686  cd ..
+ 1687  ls
+ 1688  cd go/
+ 1689  ls
+ 1690  cd src/
+ 1691  ls
+ 1692  go run main.go 
+ 1693  cd ..
+ 1694  l
+ 1695  npm start
+ 1696  wifi-vs09 
+ 1697  sudo apt-get install powertop
+ 1698  sudo powertop 
+ 1699  sudo powertop --auto-tuner
+ 1700  sudo powertop --auto-tune
+ 1701  sudo powertop 
+ 1702  npm start
+ 1703  git status 
+ 1704  cd ..
+ 1705  ls
+ 1706  git status 
+ 1707  git add .
+ 1708  git commit -m "authentication"
+ 1709  git push origin master 
+ 1710  git push -f origin master 
+ 1711  cd ../.
+ 1712  cd go/
+ 1713  ;
+ 1714  cd src/
+ 1715  ls
+ 1716  go run main.go 
+ 1717  npm start
+ 1718  cd ../
+ 1719  ls
+ 1720  cd go/
+ 1721  ls
+ 1722  cd src/
+ 1723  ls
+ 1724  go run quiz.db 
+ 1725  go run main.go 
+ 1726  wifi-vs09 
+ 1727  powertop 
+ 1728  sudo powertop 
+ 1729  powertop --auto-tune
+ 1730  sudo powertop --auto-tune
+ 1731  sudo powertop
+ 1732  wifi-vs09 
+ 1733  sudo powertop
+ 1734  wifi-vs09 
+ 1735  sudo powertop --auto-tune
+ 1736  cd go/src/
+ 1737  ls
+ 1738  cd github.com/
+ 1739  ls
+ 1740  cd jinzhu/
+ 1741  ls
+ 1742  ./moss -l c ayush.c vivek.c 
+ 1743  cat *.c > ayush.c
+ 1744  git clone https://github.com/sarvesh211999/PDFParser.git
+ 1745  git status 
+ 1746  git add .
+ 1747  git commit -m "mom update"
+ 1748  git push origin development 
+ 1749  git pull --rebase origin development 
+ 1750  git status 
+ 1751  git push origin development 
+ 1752  git status 
+ 1753  sudo powertop 
+ 1754  cd Downloads/
+ 1755  flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref
+ 1756  sudo apt-get update
+ 1757  sudo apt-get install gimp
+ 1758  npm start
+ 1759  curl -i -X POST http://localhost:8080/addcategory -d '{ "category": "Elvis"}'
+ 1760  cd 
+ 1761  l
+ 1762  npm start
+ 1763  git status 
+ 1764  git add .
+ 1765  git commit -m "add category"
+ 1766  git push origin master 
+ 1767  ls
+ 1768  npm start
+ 1769  curl -i -X POST curl -i -X POST http://localhost:8080/people -d '{ "FirstName": "Elvis", "LastName": "Psad","City":"asdsa"}'
+ 1770  curl -X GET http://localhost:8080/people 
+ 1771  curl -X GET http://localhost:8080/allCategory
+ 1772  l
+ 1773  npm start
+ 1774  nautilus .
+ 1775  npm start
+ 1776  git status 
+ 1777  git add .
+ 1778  git commit -m "add quiz question WIP"
+ 1779  git push origin master 
+ 1780  cd ../..
+ 1781  ls
+ 1782  cd ..
+ 1783  cd user/Quiz/
+ 1784  ls
+ 1785  cd go/
+ 1786  ls
+ 1787  cd src/
+ 1788  ls
+ 1789  cd quiz/
+ 1790  ls
+ 1791  cd ..
+ 1792  ls
+ 1793  go run main.go 
+ 1794  1
+ 1795  go run main.go 
+ 1796  1
+ 1797  go run main.go 
+ 1798  cd Downloads/
+ 1799  ls
+ 1800  flatpak run org.gimp.GIMP//stable
+ 1801  pip3 install textract
+ 1802  pip3 install PyPDF2
+ 1803  sudo pip3 install textract
+ 1804  ls
+ 1805  python3 parser.py 
+ 1806  pip3 install nltk
+ 1807  pip3 install pdfminer
+ 1808  pip3 install pdfminer.six
+ 1809  sudo pip3 install pdfminer.six
+ 1810  python3
+ 1811  python3 parser.py 
+ 1812  python3 parser.py > a.txt
+ 1813  nautilus .
+ 1814  ls
+ 1815  ls -al
+ 1816  cat -vet | ls -al
+ 1817  ls -al | cat -vet
+ 1818  python3 trial2.py 
+ 1819  pip3 install docx
+ 1820  sudo pip3 install docx
+ 1821  python3 trial2.py 
+ 1822  sudo pip3 install python-docx
+ 1823  python3 trial2.py 
+ 1824  python3
+ 1825  python3 trial2.py 
+ 1826  python3
+ 1827  python3 trial2.py 
+ 1828  python3
+ 1829  python3 trial2.py 
+ 1830  python3
+ 1831  python3 trial2.py 
+ 1832  python3
+ 1833  cd ..
+ 1834  python3 trial.py 
+ 1835  pip3 install -U spacy
+ 1836  sudo pip3 install -U spacy
+ 1837  python3 trial.py 
+ 1838  pip3 install -U cStringIO
+ 1839  python3 trial.py 
+ 1840  git status 
+ 1841  git add .
+ 1842  rm a.txt 
+ 1843  git status 
+ 1844  git add .
+ 1845  git commit -m "trial"
+ 1846  git push origin master 
+ 1847  git pull --rebase origin master 
+ 1848  git push origin master 
+ 1849  python3 trial.py 
+ 1850  pip3 install spacy
+ 1851  wifi-vs09 
+ 1852  sudo powertop --auto-tune
+ 1853  git status 
+ 1854  git add .
+ 1855  git commit -m "
+ 1856  clean"
+ 1857  git push origin master 
+ 1858  git status 
+ 1859  cd ..
+ 1860  ls
+ 1861  npm start
+ 1862  yarn add react-admin 
+ 1863  npm install --global yarn
+ 1864  sudo npm install --global yarn
+ 1865  cd ../
+ 1866  l
+ 1867  cd ..
+ 1868  ls
+ 1869  cd go/
+ 1870  l
+ 1871  cd src/
+ 1872  l
+ 1873  go run main.go 
+ 1874  cd ..
+ 1875  npm start
+ 1876  git status 
+ 1877  git stash
+ 1878  git status 
+ 1879  npm start
+ 1880  git stash apply
+ 1881  ls
+ 1882  npm install
+ 1883  npm start
+ 1884  ls
+ 1885  git status 
+ 1886  npm start
+ 1887  git status 
+ 1888  npm starr
+ 1889  npm install
+ 1890  npm start
+ 1891  git status 
+ 1892  cd ..
+ 1893  ls
+ 1894  git status 
+ 1895  git add .
+ 1896  git commit -m "change branch"
+ 1897  git status 
+ 1898  git checkout -b WIP
+ 1899  git status 
+ 1900  git push origin WIP 
+ 1901  git status 
+ 1902  npm start
+ 1903  ls
+ 1904  cd quiz/
+ 1905  npm start
+ 1906  ls
+ 1907  npm start
+ 1908  cd ../go/src/
+ 1909  ls
+ 1910  go run main.go 
+ 1911  curl -X GET http://localhost:8080/allQuiz
+ 1912  curl -X GET http://localhost:8080/allCategory
+ 1913  curl -X GET http://localhost:8080/allQuiz
+ 1914  curl -i -X POST http://localhost:8080/allQuiz -d '{"quizname":"Cricket","category":"Sports"}'
+ 1915  curl -i -X POST http://localhost:8080/addQuiz -d '{"quizname":"Cricket","category":"Sports"}'
+ 1916  curl -X GET http://localhost:8080/allQuiz
+ 1917  curl -i -X POST http://localhost:8080/addCategory -d '{"category":"Gk"}'
+ 1918  curl -i -X POST http://localhost:8080/addQuiz -d '{"quizname":"Cricket","category":"Sports"}'
+ 1919  curl -X GET http://localhost:8080/allQuiz
+ 1920  curl -i -X POST http://localhost:8080/addQuiz -d '{"quizname":"Bollywood","category":"Movies"}'
+ 1921  curl -X GET http://localhost:8080/allQuiz
+ 1922  wif
+ 1923  wifi-vs09
+ 1924  source ~/.bashrc 
+ 1925  wifi-vs09 
+ 1926  sudo apt-get install libpulse-dev
+ 1927  pip3 install pdfminer.six
+ 1928  sudo pip3 install pdfminer.six
+ 1929  python3 parser.py 
+ 1930  sudo powertop --auto-tune
+ 1931  git clone https://github.com/divapriya/Language_Processing.git
+ 1932  python resumeParser.py 
+ 1933  pip install nltk
+ 1934  sudo pip install nltk
+ 1935  python resumeParser.py 
+ 1936  sudo pip2 install nltk
+ 1937  cd ../PDFParser/
+ 1938  python3 parser.py e
+ 1939  python3 parser.py
+ 1940  python3 parser.py 
+ 1941  [A
+ 1942  python3 parser.py 
+ 1943  powertop
+ 1944  sudo powertop
+ 1945  cd ../..
+ 1946  ls
+ 1947  cd Quiz/
+ 1948  ls
+ 1949  cd go/
+ 1950  ls
+ 1951  cd src/
+ 1952  ls
+ 1953  l
+ 1954  go run main.go 
+ 1955  cd ..
+ 1956  ls
+ 1957  cd ..
+ 1958  ls
+ 1959  npm start
+ 1960  convert megathon_logo3.psd -channel RGBA -alpha Set -colorspace rgb output.png
+ 1961  wifi-vs09 ad
+ 1962  wifi-vs09 
+ 1963  curl -i -X POST http://localhost:8080/addQuestion -d '{"quizname":"Cricket","question":"Q1","option1":"O1","option2":"O2","option3":"O3","option4":"O4",answer:23}'
+ 1964  curl -i -X POST http://localhost:8080/addQuestion -d '{"quizname":"Cricket","question":"Q1","option1":"O1","option2":"O2","option3":"O3","option4":"O4",answer:"23"}'
+ 1965  curl -i -X POST http://localhost:8080/addQuiz -d '{"quizname":"Hollywood","category":"Movies"}'
+ 1966  curl -i -X POST http://localhost:8080/addQuestion -d '{"quizname":"Cricket","question":"Q1","option1":"O1","option2":"O2","option3":"O3","option4":"O4",answer:"23"}'
+ 1967  curl -i -X POST http://localhost:8080/addQuestion -d '{"quizname":"Cricket","question":"Q1","option1":"O1","option2":"O2","option3":"O3","option4":"O4",answer:23}'
+ 1968  curl -i -X POST http://localhost:8080/addQuestion -d '{"quizname":"Cricket","question":"Q1","option1":"O1","option2":"O2","option3":"O3","option4":"O4","answer":23}'
+ 1969  cd ..
+ 1970  l
+ 1971  cd go
+ 1972  ls
+ 1973  cd src/
+ 1974  go run main.go 
+ 1975  pm start
+ 1976  npm start
+ 1977  curl -i -X POST http://localhost:8080/addQuiz -d '{"quizname":"Bollywood","category":"Movies"}'
+ 1978  curl -i -X POST http://localhost:8080/addQuiz -d '{"quizname":"Hollywood","category":"Movies"}'
+ 1979  go run main.go 
+ 1980  wifi-vs09 
+ 1981  sudo cd /etc/default/
+ 1982  cd /etc/default/
+ 1983  ls
+ 1984  sudo gedit grub
+ 1985  go run main.go
+ 1986  curl -i -X POST http://localhost:8080/addQuestion -d '{"quizname":"Cricket","question":"Q1","option1":"O1","option2":"O2","option3":"O3","option4":"O4","answer":23}'
+ 1987  curl -i -X POST http://localhost:8080/addQuestion -d '{"quizname":"Cricket","question":"Q2","option1":"O1","option2":"O2","option3":"O3","option4":"O4","answer":2}'
+ 1988  curl -i -X POST http://localhost:8080/addQuestion -d '{"quizname":"Cricket","question":"Q3","option1":"O1","option2":"O2","option3":"O3","option4":"O4","answer":2}'
+ 1989  curl -i -X POST http://localhost:8080/addQuestion -d '{"quizname":"Football","question":"Q1","option1":"O1","option2":"O2","option3":"O3","option4":"O4","answer":2}'
+ 1990  curl -i -X POST http://localhost:8080/addQuestion -d '{"quizname":"Football","question":"Q2","option1":"O1","option2":"O2","option3":"O3","option4":"O4","answer":2}'
+ 1991  curl -i -X POST http://localhost:8080/addQuestion -d '{"quizname":"Football","question":"Q3","option1":"O1","option2":"O2","option3":"O3","option4":"O4","answer":2}'
+ 1992  cd Sarvesh/SEM-3/SSAD/Assignment-2/Quiz/quiz/
+ 1993  ls
+ 1994  npm start
+ 1995  wifi-vs09 
+ 1996  curl -i -X POST http://localhost:8080/addQuiz -d '{"quizname":"Hollywood","category":"Movies"}'
+ 1997  cd Sarvesh/SEM-3/SSAD/Assignment-2/Quiz/go/src/ && history > insert.txt
