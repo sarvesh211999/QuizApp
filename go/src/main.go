@@ -21,6 +21,15 @@ type User struct {
     Password string `json:"password"`
 }
 
+type CheckUser struct {
+    Email string `json:"email" gorm:"size:200;unique"`
+    Password string `json:"password"`
+}
+
+type Status struct {
+  Status string `json:"status"`
+}
+
 func main() {
 
     db, err = gorm.Open("sqlite3","./quiz.db")
@@ -37,6 +46,7 @@ func main() {
 
     r := gin.Default()
     r.POST("/signup",Register)
+    r.POST("/login",Login)
     r.POST("/addCategory",AddCategory)
     r.POST("/addQuiz",AddQuiz)
     r.POST("/addQuestion",AddQuizQuestion)
@@ -127,4 +137,26 @@ func GetAllQuiz(c *gin.Context) {
       c.Header("access-control-allow-origin", "*") // Why am I doing this? Find out. Try running with this line commented
       c.JSON(200, quizAll)
    }
+}
+
+func Login(c *gin.Context) {
+  var res CheckUser
+  var status Status
+  c.BindJSON(&res)
+  var user User
+  if err := db.Where("email = ?",res.Email).Find(&user).Error; err!= nil {
+    c.Header("access-control-allow-origin", "*")
+    status.Status = "Failure"
+    c.JSON(200, status)
+  } else {
+    c.Header("access-control-allow-origin", "*") // Why am I doing this? Find out. Try running with this line commented
+    if (res.Password == user.Password && res.Email == user.Email ){
+      status.Status = "Success"
+      c.JSON(200, status)  
+    } else{
+      status.Status = "Wrong Password"
+     c.JSON(404, status)   
+    }
+  }
+
 }
