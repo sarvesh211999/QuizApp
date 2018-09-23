@@ -21,3 +21,10 @@ type Quiz struct {
     Option4 string `json:"option4"`
     Answer int `json:"answer"`
 }
+
+type ScoreTable struct {
+    UserId int `json:"userid"`
+    QuizName string `json:"quizname"`
+    Attempted int `json:"attempted"`
+    Score int `json:"score"`
+}

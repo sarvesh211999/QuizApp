@@ -95,6 +95,8 @@ class Login extends Component {
           	AuthService.authenticate(() => {
 				      self.setState({ redirectToPreviousRoute: true });
 				    });
+          	console.log(data.userid)
+          	sessionStorage.setItem("id",data.userid)
           }
         })    
   };
