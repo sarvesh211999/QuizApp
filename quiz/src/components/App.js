@@ -5,6 +5,8 @@ import $ from 'jquery';
 import Dashboard from './dashboard';
 import Home from './home';
 
+sessionStorage.setItem('isLoggedIn', false);
+
 const AuthService = {
   isAuthenticated: false,
   authenticate(cb) {
@@ -17,11 +19,17 @@ const AuthService = {
   }
 };
 
+console.log(AuthService.isAuthenticated)
+
+
 const AuthStatus = withRouter(({ history }) => (
   AuthService.isAuthenticated ? (
     <p>
 			<button onClick={() => {
-        AuthService.logout(() => history.push('/'))
+        AuthService.logout(() => {
+        	history.push('/')
+        	window.AppComponent.handler()
+      })
       }}>Sign out</button>
     </p>
   ) : (
@@ -40,22 +48,56 @@ const SecretRoute = ({ component: Component, ...rest }) => (
   )} />
 );
 
+var func = function(){
+	console.log(AuthService.isAuthenticated)
+	if(!AuthService.isAuthenticated){
+	return (
+			<li><Link to='/login'> Login </Link></li>
+	)
+	}
+
+}
+
 class Login extends Component {
 
-	state = {
-    	redirectToPreviousRoute: false
-  };
-
-	login = () => {
-    AuthService.authenticate(() => {
-      this.setState({ redirectToPreviousRoute: true });
-    });
-  };
 
 	constructor() {
 		super();
+		this.state = {
+    	redirectToPreviousRoute: false,
+  	};
 		this.registerSubmit = this.registerSubmit.bind(this);
 	}
+	login = (event) => {
+		var flag = 0;
+		var self = this;
+		event.preventDefault();
+		 const formData = new FormData(document.querySelector('.login'));
+    let jsonObject ={}
+
+    for (const [key, value]  of formData.entries()) {
+      jsonObject[key] = value;
+    }
+
+    fetch('http://localhost:8080/login', {
+     method: 'POST',
+     body: JSON.stringify(jsonObject),
+      }).then((resp) => resp.json()).
+        then(function(data){
+          if(data.status=="Failure"){
+          	console.log("Email Not Registered");
+          	flag = 1;
+          }
+          else if(data.status=="Wrong Password"){
+          	console.log("Email or Password Is Incorret");
+          }
+          else {
+          	AuthService.authenticate(() => {
+				      self.setState({ redirectToPreviousRoute: true });
+				    });
+          }
+        })    
+  };
 
 	registerSubmit(event) {
 		event.preventDefault();
@@ -66,7 +108,6 @@ class Login extends Component {
     	jsonObject[key] = value;
 		}
 
-		console.log(JSON.stringify(jsonObject));
 
 		fetch('http://localhost:8080/signup', {
      method: 'POST',
@@ -79,6 +120,7 @@ class Login extends Component {
 	}
 
 	componentDidMount(){
+
 				$('.form').find('input, textarea').on('keyup blur focus', function (e) {
 		  			var $this = $(this),
 		  	    label = $this.prev('label');
@@ -127,8 +169,8 @@ class Login extends Component {
 
 	  const { from } = this.props.location.state || { from: { pathname: "/" } };
 	  const { redirectToPreviousRoute } = this.state;
-
 	  if (redirectToPreviousRoute) {
+			  this.props.handler()
 	      return <Redirect to={from} />;
 	  }
 
@@ -185,27 +227,27 @@ class Login extends Component {
 			        <div id="login">   
 			          <h1>Welcome Back!</h1>
 			          
-			         <form className="login">
+			         <form className="login" onSubmit={this.login}>
 			          
 			            	<div className="field-wrap">
 			            	<label>
 			             	 Email Address<span className="req">*</span>
 			            	</label>
-			          	  <input className="forminput" type="email"required autoComplete="off"/>
+			          	  <input className="forminput" type="email" name="email" required autoComplete="off"/>
 			        	  </div>
 			          
 			          	<div className="field-wrap">
 			           	 <label>
 			           	   Password<span className="req">*</span>
 			           	 </label>
-			           	 <input className="forminput" type="password"required autoComplete="off"/>
+			           	 <input className="forminput" type="password" name="password" required autoComplete="off"/>
 			          	</div>
 			          
 			         	 <p className="forgot"><a href="#">Forgot Password?</a></p>
 			          
 			          
+			         	<button className="button button-block" >Log In</button>
 			         	 </form>
-			         	<button className="button button-block" onClick={this.login}>Log In</button>
 			          {/*<button onClick={this.login}>Log in</button>*/}
 
 			        </div>
@@ -219,6 +261,29 @@ class Login extends Component {
 }
 
 class App extends Component {
+
+
+	constructor(props){
+		super(props);
+		this.state = {
+			flag: true
+		};
+		this.handler = this.handler.bind(this)
+		window.AppComponent = this;
+	}
+
+	handler = function() {
+		if(this.state.flag == false){
+			this.setState({flag:true})	
+		}
+		else{
+			this.setState({flag:false})		
+		}
+		
+		console.log(this.state.flag)
+	}
+
+
   render() {
     return (
     	<Router>
@@ -227,13 +292,13 @@ class App extends Component {
           <ul>
             <li><Link to='/home'> Home </Link></li>
             <li><Link to='/dashboard'> Dashboard </Link></li>
-            <li><Link to='/login'> Login </Link></li>
+            {this.state.flag && <li><Link to='/login'> Login </Link></li>}
           </ul>
 
           <hr/>
           <Switch>
 	          <Route path='/home' component={Home} />
-	          <Route path='/login' component={Login} />
+	          <Route path='/login'render={(props) => <Login {...props} handler={this.handler} />} />
 	          <SecretRoute path='/dashboard' component={Dashboard} />
 	         </Switch>
         </div>
