@@ -7,6 +7,9 @@ import QuizList from './quizList';
 import Quiz from './quiz';
 
 class Dashboard extends Component {
+  componentDidMount(){
+    console.log(this.props.authProp)
+  } 
 	render() {
 		return (
 			<Router>

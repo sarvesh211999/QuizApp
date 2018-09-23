@@ -13,9 +13,8 @@ class AddCategory extends Component {
 
 		console.log(JSON.stringify(jsonObject));
 
-		fetch('http://localhost:8080/addcategory', {
+		fetch('http://localhost:8080/addCategory', {
      method: 'POST',
-     mode: 'no-cors',
      body: JSON.stringify(jsonObject),
    	})
 	}
