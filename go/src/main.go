@@ -29,6 +29,7 @@ type CheckUser struct {
 type Status struct {
   Status string `json:"status"`
   Userid uint `json:"userid"`
+  Name string `json:"username"`
 }
 
 func main() {
@@ -56,6 +57,7 @@ func main() {
     r.GET("/allCategory",GetAllCategory)
     r.GET("/allQuiz",GetAllQuiz)
     r.GET("/getQuiz/:id",GetQuiz)
+    r.GET("/getScore/:id",GetScore)
     r.Use((cors.Default()))
     r.Run(":8080")
    
@@ -148,10 +150,34 @@ func GetAllQuiz(c *gin.Context) {
 
 func AddScore(c *gin.Context) {
     var user quiz.ScoreTable
+    var toAdd quiz.ScoreTable
     c.BindJSON(&user)
-    db.Create(&user)
+    fmt.Println(user.UserId,user.QuizName)
+    // if err := db.Where("user_id = ? AND quiz_name = ?", user.UserId,user.QuizName).Find(&toAdd).Error; err != nil {
+    //   c.AbortWithStatus(404)
+    //   fmt.Println(err)
+    // }
+    //error handling remaningi 
+    db.Model(&toAdd).Where("user_id = ? AND quiz_name = ?", user.UserId,user.QuizName).Update("attempted", user.Attempted) 
+    db.Model(&toAdd).Where("user_id = ? AND quiz_name = ?", user.UserId,user.QuizName).Update("score", user.Score) 
     c.Header("access-control-allow-origin", "*")
-    c.JSON(200, user)
+    c.JSON(200, toAdd)
+}
+
+func GetScore(c *gin.Context) {
+  var score []quiz.ScoreTable
+  id := c.Params.ByName("id")
+  if err := db.Where("user_id = ?",id).Find(&score).Error; err!=nil {
+    c.AbortWithStatus(404)
+    fmt.Println(err)
+  } else {
+    c.Header("access-control-allow-origin", "*")
+    c.JSON(200,score)
+    
+  }
+
+
+
 }
 
 
@@ -170,6 +196,7 @@ func Login(c *gin.Context) {
     if (res.Password == user.Password && res.Email == user.Email ){
       status.Status = "Success"
       status.Userid = user.ID
+      status.Name = user.FirstName + " " + user.LastName
       c.JSON(200, status)  
     } else{
       status.Userid = 0
