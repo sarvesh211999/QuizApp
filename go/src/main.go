@@ -56,6 +56,10 @@ func main() {
     r.POST("/addScore",AddScore)
     r.GET("/allCategory",GetAllCategory)
     r.GET("/allQuiz",GetAllQuiz)
+    r.GET("/allScore",GetAllScore)
+    r.GET("/allUser",GetAllUser)
+    r.GET("/delete/:id",DeleteUser)
+    r.GET("/totalScore",GetTotalScore)
     r.GET("/getQuiz/:id",GetQuiz)
     r.GET("/getScore/:id",GetScore)
     r.Use((cors.Default()))
@@ -148,6 +152,60 @@ func GetAllQuiz(c *gin.Context) {
    }
 }
 
+func GetAllScore(c *gin.Context) {
+  // var scoreAll []quiz.ScoreTable
+  // if err := db.Find(&scoreAll).Error; err != nil {
+  //     c.AbortWithStatus(404)
+  //     fmt.Println(err)
+  //  } else {
+  //     c.Header("access-control-allow-origin", "*") // Why am I doing this? Find out. Try running with this line commented
+  //     c.JSON(200, scoreAll)
+  //  }
+  type Result struct{
+    Userid int
+    Score int
+    Name string
+    Category string
+
+  }
+  var result []Result
+  // db.Raw("select Email from users").Scan(&result)
+  // fmt.Println(result)
+  db.Raw("select score_tables.user_id as userid,sum(score_tables.score) as score,users.first_name as name ,score_tables.category from score_tables inner join users on users.id = score_tables.user_id group by score_tables.category, users.id order by score_tables.category, sum(score_tables.score) desc").Scan(&result)
+  c.Header("access-control-allow-origin", "*")
+  c.JSON(200,result)
+
+}
+
+func GetAllUser(c *gin.Context) {
+  var user []User
+  if err := db.Find(&user).Error; err != nil {
+      c.AbortWithStatus(404)
+      fmt.Println(err)
+   } else {
+      c.Header("access-control-allow-origin", "*") // Why am I doing this? Find out. Try running with this line commented
+      c.JSON(200, user)
+   }
+
+}
+
+func GetTotalScore(c *gin.Context){
+  type Result struct{
+    Userid int
+    Score int
+    Name string
+    Category string
+
+  }
+  var result []Result
+  db.Raw("select score_tables.user_id as userid,sum(score_tables.score) as score,users.first_name as name ,score_tables.category from score_tables inner join users on users.id = score_tables.user_id group by users.id order by sum(score_tables.score) desc").Scan(&result)
+  c.Header("access-control-allow-origin", "*")
+  c.JSON(200,result)
+  
+
+
+}
+
 func AddScore(c *gin.Context) {
     var user quiz.ScoreTable
     var toAdd quiz.ScoreTable
@@ -175,8 +233,15 @@ func GetScore(c *gin.Context) {
     c.JSON(200,score)
     
   }
+}
 
-
+func DeleteUser(c *gin.Context) {
+  id := c.Params.ByName("id")
+  db.Where("id = ?",id).Delete(User{})
+  db.Where("user_id = ?",id).Delete(quiz.ScoreTable{})
+  c.Header("access-control-allow-origin", "*")
+  c.JSON(200,"Success")
+  
 
 }
 

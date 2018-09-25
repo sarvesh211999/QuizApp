@@ -14,6 +14,7 @@ type QuizSet struct {
 type Quiz struct {
     ID uint `json:"id"`
     QuizName string `json:"quizname"` 
+    Category string `json:"category"` 
     Question string `json:"question"`
     Option1 string `json:"option1"`
     Option2 string `json:"option2"`
@@ -25,6 +26,7 @@ type Quiz struct {
 type ScoreTable struct {
     UserId int `json:"userid"`
     QuizName string `json:"quizname"`
+    Category string `json:"category"` 
     Attempted int `json:"attempted"`
     Score int `json:"score"`
 }
