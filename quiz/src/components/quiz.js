@@ -9,6 +9,7 @@ class Quiz extends Component {
     this.state = {
       data: [],
       quizname: null,
+      category: null,
     }
     this.checkAns = this.checkAns.bind(this)
   }

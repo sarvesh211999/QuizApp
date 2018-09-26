@@ -27,7 +27,8 @@ class AddQuiz extends Component {
 	addQuiz(){
 		this.setState({submitted:true})	
 		var name = document.querySelector('.questionNam').value
-		fetch('http://localhost:8080/addQuiz/'+name,{
+		var category = document.querySelector('.category').value
+		fetch('http://localhost:8080/addQuiz/'+name+'/'+category,{
 			method:'POST'
 		})
 
@@ -65,8 +66,6 @@ class AddQuiz extends Component {
 			for (const [key, value]  of formData.entries()) {
 	    	jsonObject[key] = value;
 			}
-
-			delete jsonObject.category;
 			jsonObject.answer = checked;
 
 			fetch('http://localhost:8080/addQuestion',{
@@ -114,10 +113,10 @@ class AddQuiz extends Component {
 			<div>
 			<form className="quizForm" onSubmit={this.addQuiz}>
 				<p> Category </p>
-				<select name="category">
+				<select name="category" className="category">
 					{this.state.data.map(function(item, key) {
 	               return (
-	                      <option value={item.id}>{item.category}</option>
+	                      <option value={item.category}>{item.category}</option>
 	                )
 	             })}
 
@@ -141,7 +140,7 @@ class AddQuiz extends Component {
 			</form>
 			<div className="added">
 				<h3>Questions Added </h3>
-				<table id="question">
+				<table id="question" className="table table-hover">
 					<thead>
 						<th>Question</th>
 						<th>Option1</th>
