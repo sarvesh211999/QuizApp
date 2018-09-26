@@ -19,6 +19,7 @@ type User struct {
     LastName string `json:"lastname"`
     Email string `json:"email"`
     Password string `json:"password"`
+    Role int `json:"role"`
 }
 
 type CheckUser struct {
@@ -30,6 +31,7 @@ type Status struct {
   Status string `json:"status"`
   Userid uint `json:"userid"`
   Name string `json:"username"`
+  Role int `json:"role"`
 }
 
 func main() {
@@ -51,17 +53,19 @@ func main() {
     r.POST("/signup",Register)
     r.POST("/login",Login)
     r.POST("/addCategory",AddCategory)
-    r.POST("/addQuiz/:name",AddQuiz)
+    r.POST("/addQuiz/:name/:category",AddQuiz)
     r.POST("/addQuestion",AddQuizQuestion)
     r.POST("/addScore",AddScore)
+    r.POST("/updateQues",UpdateQuestion)
     r.GET("/allCategory",GetAllCategory)
     r.GET("/allQuiz",GetAllQuiz)
     r.GET("/allScore",GetAllScore)
     r.GET("/allUser",GetAllUser)
     r.GET("/delete/:id",DeleteUser)
-    r.GET("/totalScore",GetTotalScore)
+    r.GET("/deleteQues/:id",DeleteQuestion)
     r.GET("/getQuiz/:id",GetQuiz)
     r.GET("/getScore/:id",GetScore)
+    r.GET("/totalScore",GetTotalScore)
     r.Use((cors.Default()))
     r.Run(":8080")
    
@@ -86,13 +90,16 @@ func AddCategory(c *gin.Context) {
 
 func AddQuiz(c *gin.Context) {
   name := c.Params.ByName("name")
+  category := c.Params.ByName("category")
+  var quiz2 = quiz.QuizSet{Name: name, Category: category}
+  db.Create(&quiz2)
   var user []User
     if err := db.Select("id").Find(&user).Error; err != nil {
        c.AbortWithStatus(404)
     } else {
       fmt.Println(reflect.ValueOf(user))
     for _, elem := range user {
-        row := quiz.ScoreTable{UserId: int(elem.ID),QuizName: name,Attempted:0,Score:0}
+        row := quiz.ScoreTable{UserId: int(elem.ID),QuizName: name,Category: category,Attempted:0,Score:0}
         db.Create(&row)
     }
 
@@ -125,7 +132,7 @@ func GetQuiz(c *gin.Context) {
       c.AbortWithStatus(404)
       fmt.Println(err)
    } else {
-      c.Header("access-control-allow-origin", "*") // Why am I doing this? Find out. Try running with this line commented
+      c.Header("access-control-allow-origin", "*") 
       c.JSON(200, quizData)
    }
 }
@@ -136,7 +143,7 @@ func GetAllCategory(c *gin.Context) {
       c.AbortWithStatus(404)
       fmt.Println(err)
    } else {
-      c.Header("access-control-allow-origin", "*") // Why am I doing this? Find out. Try running with this line commented
+      c.Header("access-control-allow-origin", "*") 
       c.JSON(200, categories)
    }
 }
@@ -147,7 +154,7 @@ func GetAllQuiz(c *gin.Context) {
       c.AbortWithStatus(404)
       fmt.Println(err)
    } else {
-      c.Header("access-control-allow-origin", "*") // Why am I doing this? Find out. Try running with this line commented
+      c.Header("access-control-allow-origin", "*")
       c.JSON(200, quizAll)
    }
 }
@@ -158,7 +165,7 @@ func GetAllScore(c *gin.Context) {
   //     c.AbortWithStatus(404)
   //     fmt.Println(err)
   //  } else {
-  //     c.Header("access-control-allow-origin", "*") // Why am I doing this? Find out. Try running with this line commented
+  //     c.Header("access-control-allow-origin", "*") 
   //     c.JSON(200, scoreAll)
   //  }
   type Result struct{
@@ -183,7 +190,7 @@ func GetAllUser(c *gin.Context) {
       c.AbortWithStatus(404)
       fmt.Println(err)
    } else {
-      c.Header("access-control-allow-origin", "*") // Why am I doing this? Find out. Try running with this line commented
+      c.Header("access-control-allow-origin", "*")
       c.JSON(200, user)
    }
 
@@ -242,9 +249,27 @@ func DeleteUser(c *gin.Context) {
   c.Header("access-control-allow-origin", "*")
   c.JSON(200,"Success")
   
-
 }
 
+func DeleteQuestion(c *gin.Context) {
+  id := c.Params.ByName("id")
+  fmt.Println(id)
+  db.Where("id = ?",id).Delete(quiz.Quiz{})
+  c.Header("access-control-allow-origin", "*")
+  c.JSON(200,"Success")
+  
+}
+
+func UpdateQuestion(c *gin.Context){
+  var quizt quiz.Quiz
+  var data quiz.Quiz
+  c.BindJSON(&data)
+  fmt.Println(data)
+  db.Model(&quizt).Where("id = ?",data.ID).UpdateColumns(quiz.Quiz{Question:data.Question,Option1:data.Option1,Option2:data.Option2,Option3:data.Option3,Option4:data.Option4,Answer: data.Answer})
+  c.Header("access-control-allow-origin", "*")
+  c.JSON(200,"Success")
+
+}
 
 func Login(c *gin.Context) {
   var res CheckUser
@@ -257,11 +282,12 @@ func Login(c *gin.Context) {
     status.Userid = 0
     c.JSON(200, status)
   } else {
-    c.Header("access-control-allow-origin", "*") // Why am I doing this? Find out. Try running with this line commented
+    c.Header("access-control-allow-origin", "*")
     if (res.Password == user.Password && res.Email == user.Email ){
       status.Status = "Success"
       status.Userid = user.ID
       status.Name = user.FirstName + " " + user.LastName
+      status.Role = user.Role
       c.JSON(200, status)  
     } else{
       status.Userid = 0
