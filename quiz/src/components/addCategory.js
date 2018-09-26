@@ -17,6 +17,9 @@ class AddCategory extends Component {
      method: 'POST',
      body: JSON.stringify(jsonObject),
    	})
+
+   	alert("Category Added")
+   	document.querySelector(".categoryForm").reset()
 	}
 
 	render() {

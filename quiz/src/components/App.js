@@ -4,6 +4,7 @@ import style from '../css/style.css';
 import $ from 'jquery';
 import Dashboard from './dashboard';
 import Home from './home';
+import NotFound from './NotFound';
 
 sessionStorage.setItem('isLoggedIn', false);
 
@@ -19,21 +20,24 @@ const AuthService = {
   }
 };
 
-console.log(AuthService.isAuthenticated)
-
+const styleLogOut = {
+	color : "#919d89",
+	position : "absolute",
+	top: "0.8vw",
+	right: "0.5vw",
+	cursor: "pointer"
+}
 
 const AuthStatus = withRouter(({ history }) => (
   AuthService.isAuthenticated ? (
-    <p>
-			<button onClick={() => {
+			<li style={styleLogOut} onClick={() => {
         AuthService.logout(() => {
         	history.push('/')
         	window.AppComponent.handler()
       })
-      }}>Sign out</button>
-    </p>
+      }}>Sign out</li>
   ) : (
-    <p>You are not logged in.</p>
+  	<span>&nbsp;</span>
   )
 ));
 
@@ -85,18 +89,20 @@ class Login extends Component {
       }).then((resp) => resp.json()).
         then(function(data){
           if(data.status=="Failure"){
-          	console.log("Email Not Registered");
+          	alert("Email Not Registered");
           	flag = 1;
           }
           else if(data.status=="Wrong Password"){
-          	console.log("Email or Password Is Incorret");
+          	alert("Email or Password Is Incorret");
           }
           else {
           	AuthService.authenticate(() => {
 				      self.setState({ redirectToPreviousRoute: true });
 				    });
-          	console.log(data.userid)
           	sessionStorage.setItem("id",data.userid)
+          	sessionStorage.setItem("isAdmin",data.role)
+          	console.log(sessionStorage.getItem("isAdmin"),sessionStorage.getItem("isAdmin")=="1")
+          	sessionStorage.setItem("username",data.username)
           }
         })    
   };
@@ -113,8 +119,9 @@ class Login extends Component {
 
 		fetch('http://localhost:8080/signup', {
      method: 'POST',
-     mode: 'no-cors',
      body: JSON.stringify(jsonObject),
+   	}).then(response=>{
+   		alert("User Registered")
    	})
 		// const data = this.getFormDataAsJSON(form);
 		// console.log(data)
@@ -169,7 +176,7 @@ class Login extends Component {
 
   render() {
 
-	  const { from } = this.props.location.state || { from: { pathname: "/" } };
+	  const { from } = this.props.location.state || { from: { pathname: "/home" } };
 	  const { redirectToPreviousRoute } = this.state;
 	  if (redirectToPreviousRoute) {
 			  this.props.handler()
@@ -289,19 +296,26 @@ class App extends Component {
   render() {
     return (
     	<Router>
-        <div style={{width: 1000, margin: '0 auto'}}>
-        <AuthStatus />
-          <ul>
-            <li><Link to='/home'> Home </Link></li>
-            <li><Link to='/dashboard'> Dashboard </Link></li>
-            {this.state.flag && <li><Link to='/login'> Login </Link></li>}
-          </ul>
-
-          <hr/>
+        <div>
+         <nav class="navbar navbar-inverse">
+				  <div class="container-fluid">
+				    <div class="navbar-header">
+				      <a class="navbar-brand" href="/home">Quiz Portal</a>
+				    </div>
+				    <ul class="nav navbar-nav">
+					    <li><Link to='/home'> Home </Link></li>
+	            <li><Link to='/dashboard'> Dashboard </Link></li>
+				    </ul>
+				    <ul class="nav navbar-nav navbar-right">
+				      {this.state.flag && <li><Link to='/login'><span class="glyphicon glyphicon-log-in"></span> Login </Link></li>}
+        			<AuthStatus />
+				    </ul>
+				  </div>
+				</nav> 
           <Switch>
 	          <Route path='/home' component={Home} />
-	          <Route path='/login'render={(props) => <Login {...props} handler={this.handler} />} />
-	          <SecretRoute path='/dashboard' component={Dashboard} />
+	          <Route path='/login' render={(props) => <Login {...props} handler={this.handler} />} />
+	          <SecretRoute path='/dashboard' component={Dashboard}/>
 	         </Switch>
         </div>
       </Router>

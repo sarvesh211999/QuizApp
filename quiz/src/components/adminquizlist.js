@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
+import React , { Component } from 'react';
 import { BrowserRouter as Router, Link, Route, Redirect, Switch,withRouter } from 'react-router-dom';
-import { browserHistory } from 'react-router';
 
-class QuizList extends Component {
-
+class AdminQuizList extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -19,22 +17,31 @@ class QuizList extends Component {
 						.then(data => this.setState({quiz:data}));
 	}
 
+	delete(event) {
+		var id = event.target.value
+		console(id)
+		const request = new Request('http://localhost:8080/deletequiz/' + id)
+		fetch(request)
+	}
+
 	render() {
+		var self = this
 		return (
 			<div>
-				<table className="table table-striped">
+				<table className="table table-striped table-bordered table-hover table-condensed">
 					<thead>
 						<tr>
-							<th>Name Of Quiz</th>
 							<th>Category</th>
+							<th>Name Of Quiz</th>
 						</tr>
 					</thead>
 					<tbody>{this.state.quiz.map(function(item,key){
 						return (
 							<tr id={item.id}>
-								<td>{item.quizname}</td>
 								<td>{item.category}</td>
-								<td><Link to={"/quiz/" + item.id } > Take Quiz </Link></td>
+								<td>{item.quizname}</td>
+								<td><Link to={"/adminquiz/" + item.id } > Edit Quiz </Link></td>
+								<td><button id={`delete${item.id}`} onClick={self.delete}>Delete Quiz</button></td>
 							</tr>
 						)
 					})}
@@ -44,4 +51,4 @@ class QuizList extends Component {
 		)
 	}
 }
-export default QuizList
+export default AdminQuizList
