@@ -62,6 +62,7 @@ func main() {
     r.GET("/allScore",GetAllScore)
     r.GET("/allUser",GetAllUser)
     r.GET("/delete/:id",DeleteUser)
+    r.GET("/deletequiz/:id",DeleteQuiz)
     r.GET("/deleteQues/:id",DeleteQuestion)
     r.GET("/getQuiz/:id",GetQuiz)
     r.GET("/getScore/:id",GetScore)
@@ -178,7 +179,7 @@ func GetAllScore(c *gin.Context) {
   var result []Result
   // db.Raw("select Email from users").Scan(&result)
   // fmt.Println(result)
-  db.Raw("select score_tables.user_id as userid,sum(score_tables.score) as score,users.first_name as name ,score_tables.category from score_tables inner join users on users.id = score_tables.user_id group by score_tables.category, users.id order by score_tables.category, sum(score_tables.score) desc").Scan(&result)
+  db.Raw("select score_tables.user_id as userid,sum(score_tables.score) as score,users.first_name as name ,score_tables.category from score_tables inner join users on users.id = score_tables.user_id where score_tables.attempted != 0 group by score_tables.category, users.id order by score_tables.category, sum(score_tables.score) desc").Scan(&result)
   c.Header("access-control-allow-origin", "*")
   c.JSON(200,result)
 
@@ -205,7 +206,7 @@ func GetTotalScore(c *gin.Context){
 
   }
   var result []Result
-  db.Raw("select score_tables.user_id as userid,sum(score_tables.score) as score,users.first_name as name ,score_tables.category from score_tables inner join users on users.id = score_tables.user_id group by users.id order by sum(score_tables.score) desc").Scan(&result)
+  db.Raw("select score_tables.user_id as userid,sum(score_tables.score) as score,users.first_name as name ,score_tables.category from score_tables inner join users on users.id = score_tables.user_id where score_tables.attempted != 0 group by users.id order by sum(score_tables.score) desc").Scan(&result)
   c.Header("access-control-allow-origin", "*")
   c.JSON(200,result)
   
@@ -240,6 +241,16 @@ func GetScore(c *gin.Context) {
     c.JSON(200,score)
     
   }
+}
+
+func DeleteQuiz(c *gin.Context) {
+  var quizt quiz.QuizSet
+  id := c.Params.ByName("id")
+  db.Where("id = ?",id).Find(&quizt)
+  name := quizt.Name
+  db.Where("id = ?",id).Delete(quiz.QuizSet{})
+  db.Where("quiz_name = ?",name).Delete(quiz.Quiz{})
+
 }
 
 func DeleteUser(c *gin.Context) {
